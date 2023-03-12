@@ -1,0 +1,36 @@
+{
+  "name": "@myscope/my-library",
+  "version": "1.0.0",
+  "main": "src/index.ts",
+  "module": "src/index.ts",
+  "types": "src/index.ts",
+  "license": "UNLICENSED",
+  "scripts": {
+    "build": "yarn build:es && yarn build:types && yarn build:copy",
+    "build:copy": "node ../../scripts/copyFiles.js",
+    "build:es": "vite build",
+    "build:types": "vue-tsc --declaration --emitDeclarationOnly  --project tsconfig.build.json",
+    "cleanup": "rimraf dist .turbo",
+    "test": "vitest",
+    "lint": "eslint . --ignore-path ../../.eslintignore --cache --ext .ts,.vue --max-warnings 5",
+    "lint:types": "vue-tsc --noEmit"
+  },
+  "dependencies": {
+    "@netlify/classnames-template-literals": "^1.0.3"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.14",
+    "vue": "3.2.45"
+  },
+  "peerDependencies": {
+    "vue": ">= 3.2.0"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
+    "directory": "dist"
+  },
+  "volta": {
+    "node": "16.13.0"
+  },
+  "sideEffects": false
+}

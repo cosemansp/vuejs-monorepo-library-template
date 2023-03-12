@@ -1,0 +1,13 @@
+/.git
+**/build/*
+**/dist/*
+node_modules
+vite.config.ts
+components.d.ts
+histoire.config.ts
+tailwind.config.js
+scripts/*
+
+
+
+

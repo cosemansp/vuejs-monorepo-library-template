@@ -1,0 +1,29 @@
+{
+  "pipeline": {
+    "build": {
+      "dependsOn": ["build:es", "build:types", "build:copy"]
+    },
+    "build:es": {
+      "dependsOn": ["^build:es"],
+      "outputs": ["dist/**"]
+    },
+    "build:copy": {
+      "dependsOn": ["^build:copy", "build:es"],
+      "outputs": ["dist/package.json"]
+    },
+    "build:types": {
+      "dependsOn": ["^build:types"],
+      "outputs": ["dist/**/*.d.ts"]
+    },
+    "cleanup": {
+      "outputs": [],
+      "cache": false
+    },
+    "lint": {
+      "outputs": []
+    },
+    "release": {
+      "dependsOn": ["lint", "build"]
+    }
+  }
+}
